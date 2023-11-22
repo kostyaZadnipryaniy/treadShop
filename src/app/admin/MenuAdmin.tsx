@@ -21,12 +21,13 @@ export function MainAdmin(){
     <h2>Active table of orders</h2>
     <table>
     <thead>
+      <tr>
       <th>N</th>
       <th>Name of goods</th>
       <th>customer</th>
       <th>Date of order</th>
       <th>Date of dispatch</th>
-      <th>Status</th>
+      <th>Status</th></tr>
     </thead>
     <tr>
       <td>N</td>

@@ -1,9 +1,11 @@
 import MenuItem, { MainItem } from './MenuItem'
 import { Footer, Header } from '../../Layouts'
-export default function Home() {
+export default function Home({ params }: { params: { item : string } }) {
   return (<>
    <Header props={<MenuItem/>}/>
-   <MainItem/>
+   <MainItem params={{
+      item: params.item
+    }}  />
     <Footer/>
     </>
   )

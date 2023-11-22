@@ -20,14 +20,14 @@ export function MainCurrentorders(){
   return(<main>
     <h2>Full table of orders</h2>
     <table>
-    <thead>
+    <tr>
       <th>N</th>
       <th>Name of goods</th>
       <th>customer</th>
       <th>Date of order</th>
       <th>Date of dispatch</th>
       <th>Status</th>
-    </thead>
+    </tr>
     <tr>
       <td>N</td>
       <td>..</td>

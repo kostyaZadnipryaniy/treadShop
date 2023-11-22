@@ -21,14 +21,14 @@ export default function MainLeftovers(){
         <h2>Table of product balances</h2>
         <form action="">
         <table className="leftovers">
-          <thead>
+          <tr>
           <th>N</th>
           <th>Name of goods</th>
           <th>Unit</th>
           <th>Price</th>
           <th>Number</th>
           <th>Coast</th>
-          </thead>
+          </tr>
           <tr>
           <td>..</td>
           <td>..</td>

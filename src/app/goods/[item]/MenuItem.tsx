@@ -1,21 +1,6 @@
-
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
-import ImageListItemBar from '@mui/material/ImageListItemBar';
 import Image from 'next/image'
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
-import { experimentalStyled as styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
 
-
-export default function MenuCustomer(){
+export default function MenuItem(){
     return(
         <div>
         <a href="/auto-auth/log-in" className='menu'>log in</a>
@@ -28,38 +13,35 @@ export default function MenuCustomer(){
         </div>
     )
 }
-
-export function MainCustomer(){
-  return (<main>
-    <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 16 }}>
-        {itemData.map((_, index) => (
-          <Grid item xs={2} sm={4} md={4} key={index}>
-            <a href={`/goods/${_.title}`}><Card sx={{ maxWidth: 345 }}>
-        <CardActionArea>
-          <img
-            srcSet={`${_.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-            src={`${_.img}?w=248&fit=crop&auto=format`}
-            alt={_.title}
-            loading="lazy"          
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              {_.author}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Lizards are a widespread group of squamate reptiles, with over 6,000
-              species, ranging across all continents except Antarctica
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-      </Card></a>
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
-    </main> 
-    );
+//map of db
+export function MainItem({ params }: { params: { item : string } }){
+  const data = itemData.find(i => i.title == params.item)?.img
+  
+  return(<main>
+    <h2>Name of goods</h2>
+    <form action="">
+      <p>{params.item}</p>
+      <p>Description</p>
+      <img src={`${data}?w=248&fit=crop&auto=format&dpr=4 4x`} alt='image' width={300} height={300}/> 
+      <p>Price</p>
+      <a href="/sail"><div>buy</div></a>
+      <div>
+        <h3>Comments</h3>
+        <table>
+          <tr>
+            <td>author.....</td>
+            <td>text.......</td>
+            <td>date.......</td>
+          </tr>
+          <tr>
+            <td width='20%'>author.....</td>
+            <td width='60%'><textarea name="comment" id="comment" className='tableInput'/></td>
+            <td width='20%'><input type="button" value="add comment" className='tableInput'/></td>
+          </tr>
+        </table>
+      </div>
+    </form>
+   </main>)
 }
 
 const itemData = [
